@@ -25,8 +25,7 @@ const findAll = async (req, res) => {
     : {};
   console.log(condition);
   try {
-    let grade = await gradesModel.find(condition);
-    grade.id = grade._id;
+    const grade = await gradesModel.find(condition);
     res.send(grade);
     logger.info(`GET /grade`);
   } catch (error) {
@@ -41,8 +40,8 @@ const findOne = async (req, res) => {
   const id = req.params.id;
 
   try {
-    let grade = await gradesModel.findById(id);
-    grade.id = grade._id;
+    const grade = await gradesModel.findById(id);
+
     res.send(grade);
 
     logger.info(`GET /grade - ${id}`);
