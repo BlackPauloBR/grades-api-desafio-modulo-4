@@ -26,7 +26,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
-  cors()
+  cors({
+    origin: process.env.CORS_URL_FRONT,
+  })
 );
 
 app.use(gradeRouter);
